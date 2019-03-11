@@ -1,0 +1,34 @@
+{
+  "name": "reactmentoring",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "webpack-dev": "webpack-dev-server --debug --hot --devtool eval-source-map --output-pathinfo --watch --colors --inline --content-base public --port 8090 --host 0.0.0.0",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreyKirshin/ReactMentoring.git"
+  },
+  "author": "Andrei Kirshin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreyKirshin/ReactMentoring/issues"
+  },
+  "homepage": "https://github.com/AndreyKirshin/ReactMentoring#readme",
+  "dependencies": {
+    "body-parser": "^1.12.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "*",
+    "babel-preset-react": "^6.24.1",
+    "babel-core": "6.23.1",
+    "babel-loader": "6.3.2",
+    "file-loader": "^0.8.5",
+    "react-hot-loader": "^4.7.2",
+    "webpack": "3.5.5",
+    "webpack-dev-server": "^2.4.1"
+  }
+}
