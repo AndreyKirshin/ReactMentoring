@@ -18,19 +18,16 @@
   },
   "homepage": "https://github.com/AndreyKirshin/ReactMentoring#readme",
   "dependencies": {
-    "body-parser": "^1.12.3",
     "express": "^4.16.4",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
   "devDependencies": {
-    "autoprefixer-loader": "*",
     "babel-preset-react": "^6.24.1",
-    "babel-core": "6.23.1",
-    "babel-loader": "6.3.2",
-    "file-loader": "^0.8.5",
-    "react-hot-loader": "^4.7.2",
-    "webpack": "3.5.5",
-    "webpack-dev-server": "^2.4.1"
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+
+    "webpack": "^4.29.6",
+    "webpack-dev-server": "^3.2.1"
   }
 }

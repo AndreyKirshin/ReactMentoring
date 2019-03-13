@@ -6,12 +6,12 @@ import FunctionalComponent from './functionalCompoonent.jsx';
 export default class App extends React.Component {
     render(){
        return(
-           <div>
-               <h1>App for movies</h1>
+           <React.Fragment>
+               <h1>App for movies !!!</h1>
                <CreateElement />
                <PureComponent />
                <FunctionalComponent />
-           </div>   
+           </React.Fragment>   
         )
      }
 }
