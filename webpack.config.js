@@ -1,10 +1,10 @@
 var webpack = require('webpack');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     entry: "./client/main.js",
     output: {
-        path: __dirname + '/public/build/',
-        publicPath: "build/",
+        path: __dirname + '/public/',
         filename: "bundle.js"
     },
     devServer: {
@@ -20,20 +20,19 @@ module.exports = {
                     {
                       loader: 'babel-loader',
                       options: {
-                        presets: ['react']
+                        presets: ['@babel/preset-react']
                       }
                     }
                 ],
             },
             {
                 test: /\.jsx$/,
-                // loader: "react-hot-loader!babel-loader",
                 exclude: [/node_modules/, /public/],
                 use: [
                     {
                       loader: 'babel-loader',
                       options: {
-                        presets: ['react']
+                        presets: ['@babel/preset-react']
                       }
                     }
                 ],
@@ -43,5 +42,12 @@ module.exports = {
                 loader: "json-loader"
             }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+          title: "App Movie",
+          hash: true,
+          template: "./index.html"
+        })
+      ]
 }
