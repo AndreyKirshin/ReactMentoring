@@ -60,3 +60,7 @@ typings/
 
 # next.js build output
 .next
+
+#my conditions
+package-lock.json
+public/index.html

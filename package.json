@@ -6,8 +6,8 @@
     "server": "node server/app.js",
     "build": "webpack --mode production",
     "start": "start public/index.html",
-    "devserver": "webpack-dev-server --debug --hot --devtool eval-source-map --output-pathinfo --watch --colors --inline --port 8091 --host 0.0.0.0",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "devserver": "webpack-dev-server --colors",
+    "test": "jest --passWithNoTests"
   },
   "repository": {
     "type": "git",
@@ -26,11 +26,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
-    "babel-core": "^6.26.3",
     "babel-loader": "^8.0.5",
     "babel-preset-react": "^6.24.1",
     "html-webpack-plugin": "3.2.0",
+    "jest": "^24.5.0",
+    "react-test-renderer": "^16.8.4",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
