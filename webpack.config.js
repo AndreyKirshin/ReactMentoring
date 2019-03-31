@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = function(env, options)  {
   const isProduction = options.mode === "production";
@@ -30,9 +31,16 @@ module.exports = function(env, options)  {
           exclude: [/node_modules/, /public/],
           loader: 'babel-loader'
         },
+        // {
+        //   test: /\.json$/,
+        //   loader: "json-loader"
+        // },
         {
-          test: /\.json$/,
-          loader: "json-loader"
+          test: /\.less$/,
+          use: ExtractTextPlugin.extract({
+            fallback: "style-loader",
+            use: ["css-loader", "less-loader"]
+          })
         }
       ]
     },
@@ -41,6 +49,9 @@ module.exports = function(env, options)  {
         title: "App Movie",
         hash: true,
         template: path.resolve(__dirname, "./index.html")
+      }),
+      new ExtractTextPlugin({
+        filename: "style.css"
       })
     ]
   }
