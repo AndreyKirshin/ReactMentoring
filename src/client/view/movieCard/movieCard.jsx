@@ -1,5 +1,6 @@
 import React from 'react';
 import './movieCard.less';
+import MovieInfo from '../movieInfo/movieInfo';
 
 const MovieCard = ({ movie, backToSearch }) => (
     <div>
@@ -9,13 +10,13 @@ const MovieCard = ({ movie, backToSearch }) => (
                 <img src={movie.poster_path} alt={movie.title} ></img>
             </div>
             <div className="movie-card-right-column">
-                <p className="movie-card-title">{movie.title}</p>
-                <p>{movie.vote_average}</p>
-                <div>
-                    <span>{movie.release_date}</span>
-                    <span className="movie-card-runtime">{movie.runtime} min</span>
-                </div>
-                <p>{movie.overview}</p>
+                <MovieInfo 
+                    title={movie.title} 
+                    vote_average={movie.vote_average} 
+                    release_date={movie.release_date} 
+                    runtime={movie.runtime}
+                    overview={movie.overview} 
+                />
             </div>
         </div>        
     </div>

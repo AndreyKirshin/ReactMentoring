@@ -5,6 +5,7 @@ import MovieList from '../movieList/movieList';
 import Search from '../search/search';
 import MovieCard from '../movieCard/movieCard';
 import BuggyButton from '../buggyButton/buggyButton';
+import './container.less';
 
 export default class Container extends React.Component {
     constructor() {
@@ -15,7 +16,6 @@ export default class Container extends React.Component {
         this.handleOnSearch = this.handleOnSearch.bind(this);
         this.handleBackToSearch = this.handleBackToSearch.bind(this);
         this.handleClickOnMovie = this.handleClickOnMovie.bind(this);
-        
     }
 
     handleChangeSearchValue(event) {
@@ -41,17 +41,31 @@ export default class Container extends React.Component {
         console.log(`I'm searchimg ${searchValue}`);
     }
 
+    searchByTitleToggle = () => {
+        this.setState({searchBy: 'title'});
+    }
+
+    searchByGenreToggle = () => {
+        this.setState({searchBy: 'genre'});
+    }
+
     render() {
         return (
-            <>
+            <div className="container">
                 {
                     (this.state.currentMovie) ?
                     (<MovieCard movie={this.state.currentMovie} backToSearch={this.handleBackToSearch} />) :
-                    (<Search onChangeSearchValue={this.handleChangeSearchValue} onSearch={this.handleOnSearch} testError={this.handleErrorTest}/>)
+                    (<Search 
+                        onChangeSearchValue={this.handleChangeSearchValue} 
+                        onSearch={this.handleOnSearch} 
+                        searchByTitleToggle={this.searchByTitleToggle}
+                        searchByGenreToggle={this.searchByGenreToggle}
+                        searchBy={this.state.searchBy}
+                    />)
                 }
                 <BuggyButton />
                 <MovieList data={this.state.data} onClick={this.handleClickOnMovie} />
-            </>
+            </div>
         )
     }
 

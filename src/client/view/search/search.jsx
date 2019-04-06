@@ -1,18 +1,22 @@
 import React from 'react';
+import SearchByButton from '../searchByButton/searchByButton';
+import './search.less';
 
-const Search = ({ onChangeSearchValue, onSearch, searchByTitle, searchByGenre }) => (
-    <form onSubmit={onSearch}>
+const Search = ({ onChangeSearchValue, onSearch, searchByTitleToggle, searchByGenreToggle, searchBy }) => (
+    <div onSubmit={onSearch}>
         <label>
           <p>FIND YOUR MOVIE:</p>
-          <input type="text" onChange={onChangeSearchValue} />
+          <input className="search-input" type="text" onChange={onChangeSearchValue} />
         </label>
-        <div>
-          {/* <span>SEARCH BY</span>
-          <button onClick={searchByTitle}>TITLE</button>
-          <button onClick={searchByGenre}>GENRE</button> */}
+        <div className="search-button-panel">
+          <div>
+            <span>SEARCH BY</span>
+            <SearchByButton name={'TITLE'} toggle={searchByTitleToggle} isActive={searchBy === 'title'} />
+            <SearchByButton name={'GENRE'} toggle={searchByGenreToggle} isActive={searchBy === 'genre'} />
+          </div>
+          <button className="search-submit-button" onClick={onSearch}>Search</button>
         </div>
-        <input type="submit" value="Search" />
-    </form>
+    </div>
 )
 
 export default Search;
