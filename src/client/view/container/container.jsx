@@ -35,6 +35,7 @@ export default class Container extends React.Component {
     handleClickOnMovie(id) {
         console.log(id);
         this.setState({currentMovie: movie});
+        this.setState({currentMovieId: id});
     }
 
     doSearch(searchValue) {

@@ -3,7 +3,7 @@ import SearchByButton from '../searchByButton/searchByButton';
 import './search.less';
 
 const Search = ({ onChangeSearchValue, onSearch, searchByTitleToggle, searchByGenreToggle, searchBy }) => (
-    <div onSubmit={onSearch}>
+    <div>
         <label>
           <p>FIND YOUR MOVIE:</p>
           <input className="search-input" type="text" onChange={onChangeSearchValue} />
