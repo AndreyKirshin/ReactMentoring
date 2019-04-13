@@ -1,0 +1,51 @@
+{
+  "name": "reactmentoring",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "server": "node server/app.js",
+    "build-prod": "webpack --mode production",
+    "build-dev": "webpack --mode development",
+    "start": "start public/index.html",
+    "devserver": "webpack-dev-server --colors",
+    "test": "jest --passWithNoTests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreyKirshin/ReactMentoring.git"
+  },
+  "author": "Andrei Kirshin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreyKirshin/ReactMentoring/issues"
+  },
+  "homepage": "https://github.com/AndreyKirshin/ReactMentoring#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-redux": "^6.0.1",
+    "react-router": "^5.0.0",
+    "redux": "^4.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^2.1.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-webpack-plugin": "3.2.0",
+    "jest": "^24.5.0",
+    "json-loader": "^0.5.7",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
+    "react-test-renderer": "^16.8.4",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  }
+}

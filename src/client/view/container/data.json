@@ -1,0 +1,56 @@
+{
+    "data": [
+      {
+        "id": 0,
+        "title": "The Dirt",
+        "tagline": "string",
+        "vote_average": 0,
+        "vote_count": 0,
+        "release_date": "2019",
+        "poster_path": "https://www.joblo.com/assets/images/joblo/posters/2019/03/dirt-poster_thumb.jpg",
+        "overview": "string",
+        "budget": 0,
+        "revenue": 0,
+        "runtime": 0,
+        "genres": [
+          "Action", "Comedy", "Crime"
+        ]
+      },
+      {
+        "id": 1,
+        "title": "JOHN WICK: CHAPTER 3",
+        "tagline": "string",
+        "vote_average": 0,
+        "vote_count": 0,
+        "release_date": "2016",
+        "poster_path": "https://www.joblo.com/assets/images/joblo/posters/2019/03/john_wick_chapter_three_ver4_xlg_thumb.jpg",
+        "overview": "string",
+        "budget": 0,
+        "revenue": 0,
+        "runtime": 0,
+        "genres": [
+          "Action", "Fantasy"
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Apollo 11",
+        "tagline": "string",
+        "vote_average": 0,
+        "vote_count": 0,
+        "release_date": "2017",
+        "poster_path": "https://www.joblo.com/assets/images/joblo/posters/2019/03/apollo-11-poster_thumb.jpg",
+        "overview": "string",
+        "budget": 0,
+        "revenue": 0,
+        "runtime": 0,
+        "genres": [
+          "Historical", "Fantasy"
+        ]
+      }
+    ],
+    "total": 0,
+    "offset": 0,
+    "limit": 0,
+    "searchBy": "title"
+}
