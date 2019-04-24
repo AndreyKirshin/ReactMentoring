@@ -1,6 +1,6 @@
 import React from 'react';
-import Container from './container/container.jsx';
-import ErrorBoundary from './errorBoundary/errorBoundary';
+import Container from '../container/container.jsx';
+import ErrorBoundary from '../errorBoundary/errorBoundary';
 
 export default class App extends React.Component {
     render(){
