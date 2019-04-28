@@ -1,16 +1,18 @@
 import React from 'react';
-import data from './data.json';
-import movie from './movie.json';
 import MovieList from '../movieList/movieList';
 import Search from '../search/search';
 import MovieCard from '../movieCard/movieCard';
 import BuggyButton from '../buggyButton/buggyButton';
 import './container.less';
+import { connect } from 'react-redux';
+import { fetchMovies, changeSearchBy } from '../../state/movies/moviesActions';
+import moviesSelector from '../../state/movies/moviesSelector';
 
-export default class Container extends React.Component {
+
+export class Container extends React.Component {
     constructor() {
         super();
-        this.state = data;
+        this.state = {};
 
         this.handleChangeSearchValue = this.handleChangeSearchValue.bind(this);
         this.handleOnSearch = this.handleOnSearch.bind(this);
@@ -23,34 +25,43 @@ export default class Container extends React.Component {
     }
 
     handleOnSearch(event) {
-        console.log(this.state.searchValue);
-        this.doSearch(this.state.searchValue);
+        if(this.state.searchValue){
+            this.props.doSearch({
+                search: this.state.searchValue,
+                searchBy: this.props.searchBy
+            });
+        }
         event.preventDefault();
     }
 
     handleBackToSearch() {
         this.setState({currentMovie: undefined});
+        this.setState({searchValue: undefined});
+    }
+
+    findMovie = (movies, id) => {
+        if (movies) {
+            return movies.filter(movie => movie.id === id)[0];
+        }
+        return null;
     }
 
     handleClickOnMovie(id) {
         console.log(id);
-        this.setState({currentMovie: movie});
+        this.setState({currentMovie: this.findMovie(this.props.movies, id)});
         this.setState({currentMovieId: id});
     }
 
-    doSearch(searchValue) {
-        console.log(`I'm searchimg ${searchValue}`);
-    }
-
     searchByTitleToggle = () => {
-        this.setState({searchBy: 'title'});
+        this.props.setSearchBy({searchBy: 'title'});
     }
 
     searchByGenreToggle = () => {
-        this.setState({searchBy: 'genre'});
+        this.props.setSearchBy({searchBy: 'genre'});
     }
 
     render() {
+        const { movies, searchBy } = this.props;
         return (
             <div className="container">
                 {
@@ -61,13 +72,27 @@ export default class Container extends React.Component {
                         onSearch={this.handleOnSearch} 
                         searchByTitleToggle={this.searchByTitleToggle}
                         searchByGenreToggle={this.searchByGenreToggle}
-                        searchBy={this.state.searchBy}
+                        searchBy={searchBy}
                     />)
                 }
                 <BuggyButton />
-                <MovieList data={this.state.data} onClick={this.handleClickOnMovie} />
+                {movies && !!movies.length && <MovieList data={movies} onClick={this.handleClickOnMovie} />}
+                {this.state.searchValue && movies && movies.length === 0 && <h1>No search result</h1>}
+                {!this.state.searchValue && <h1>Please, start searching</h1>}
             </div>
         )
     }
 
-}
+};
+
+const mapStateToProps = state => ({
+    movies: moviesSelector.movies(state),
+    searchBy: moviesSelector.searchBy(state)
+});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    doSearch: data => dispatch(fetchMovies(data)),
+    setSearchBy: data => dispatch(changeSearchBy(data))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Container);
