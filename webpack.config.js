@@ -13,13 +13,15 @@ module.exports = function(env, options)  {
     devtool: isProduction ? "none" : "source-map",
     output: {
       path: __dirname + '/public/',
-      filename: "bundle.js"
+      filename: "bundle.js",
+      publicPath: '/'
     },
     devServer: {
       inline: true,
       hot: true,
       port: 8091,
-      contentBase: "./public"
+      contentBase: "./public",
+      historyApiFallback: true
     },
     resolve: {
       extensions: [".js", ".jsx"]

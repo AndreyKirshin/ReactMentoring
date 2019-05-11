@@ -1,11 +1,14 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './movieItem.less';
 
-const MovieItem = ({ id, title, release_date, poster_path, genres, onClick }) => (
+const MovieItem = ({ id, title, release_date, poster_path, genres }) => (
     <div className="movie-list-item" id={id}>
-        <a href="#" onClick={onClick.bind(null, id)}>
+        <Link to={{
+            pathname: `/film/${id}`
+        }} replace>
             <img src={poster_path} alt={title} ></img>
-        </a>
+        </Link>
         
         <div className="movie-list-item-capture">
             <p>{title}</p>

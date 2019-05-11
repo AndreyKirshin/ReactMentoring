@@ -7,11 +7,9 @@ const INITIAL_STATE = {
 
 export default handleActions(
     {
-        [moviesActionTypes.MOVIES_FETCH]: state => {
-            console.log(state);
-            return {
+        [moviesActionTypes.MOVIES_FETCH]: state => ({
             ...state
-        }},
+        }),
         [moviesActionTypes.MOVIES_FETCH_SUCCESS]: (state, action) => ({
             ...state,
             data: action.payload

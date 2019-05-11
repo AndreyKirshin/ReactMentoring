@@ -1,11 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './movieList.less';
 import MovieItem from '../movieItem/movieItem';
+import moviesSelector from '../../state/movies/moviesSelector';
 
-const MovieList = ({ data, onClick }) => (
+const MovieList = ({ movies }) => (
     <div className="movie-list" >
         {
-            data.map(movie => 
+            movies && movies.map(movie => 
                 <div key={movie.id} >
                     <MovieItem
                         id={movie.id} 
@@ -13,7 +15,6 @@ const MovieList = ({ data, onClick }) => (
                         release_date={movie.release_date}
                         poster_path={movie.poster_path}
                         genres={movie.genres}
-                        onClick={onClick} 
                     />
                 </div>    
             )
@@ -21,4 +22,8 @@ const MovieList = ({ data, onClick }) => (
     </div>
 );
 
-export default MovieList;
+const mapStateToProps = state => ({
+    movies: moviesSelector.movies(state)
+});
+
+export default connect(mapStateToProps)(MovieList);
