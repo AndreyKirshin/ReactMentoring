@@ -11,3 +11,9 @@ export const loadMovies = (data) => axios({
         
     }
 });
+
+export const loadMovie = id => axios({
+    method: 'get',
+    url: `${'https://cors-anywhere.herokuapp.com/'}${rootApi}movies/${id}`,
+    dataType: 'json'
+});

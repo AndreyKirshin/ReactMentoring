@@ -1,12 +1,12 @@
-import keyMirror from 'keymirror';
 
-export const moviesActionTypes = keyMirror({
-    MOVIES_FETCH: null,
-    MOVIES_FETCH_SUCCESS: null,
-    MOVIES_FETCH_FAIURE: null,
 
-    CHANGE_SEARCHBY: null
-});
+export const moviesActionTypes = {
+    MOVIES_FETCH: 'MOVIES_FETCH',
+    MOVIES_FETCH_SUCCESS: 'MOVIES_FETCH_SUCCESS',
+    MOVIES_FETCH_FAIURE: 'MOVIES_FETCH_FAIURE',
+
+    CHANGE_SEARCHBY: 'CHANGE_SEARCHBY'
+};
 
 export const fetchMovies = data => ({
     type: moviesActionTypes.MOVIES_FETCH,
