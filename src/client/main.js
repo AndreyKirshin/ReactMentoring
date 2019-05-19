@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './view/app/App.jsx';
-import { Provider } from 'react-redux';
-import store from './state/store';
-import ErrorBoundary from './view/errorBoundary/errorBoundary';
 
+// import store from './state/store';
+import configureStore from './state/configureStore';
+import { BrowserRouter as Router } from "react-router-dom";
 
-ReactDOM.render(
-    <Provider store={store} >
-        <ErrorBoundary>
-            <App />
-        </ErrorBoundary>
-    </Provider>,
+const store = configureStore(window.PRELOADED_STATE, window);
+
+ReactDOM.hydrate(
+    <App router={Router} store={store}/>,
     document.getElementById('mount-point')
 );

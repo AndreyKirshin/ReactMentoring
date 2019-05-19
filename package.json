@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "server": "node server/app.js",
+    "server": "cross-env NODE_ENV=development  node ./server",
     "build-prod": "webpack --mode production",
     "build-dev": "webpack --mode development",
     "start": "start public/index.html",
@@ -26,9 +26,11 @@
   "dependencies": {
     "@babel/runtime": "^7.4.4",
     "axios": "^0.18.0",
+    "cross-env": "^5.2.0",
     "express": "^4.16.4",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.8.6",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
@@ -45,6 +47,7 @@
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.5",
     "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^2.0.2",
     "css-loader": "^2.1.1",
     "cypress": "^3.2.0",
     "enzyme": "^3.9.0",
@@ -58,11 +61,17 @@
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "lodash": "^4.17.11",
+    "mini-css-extract-plugin": "^0.6.0",
     "react-test-renderer": "^16.8.4",
     "redux-mock-store": "^1.5.3",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.2.1"
+    "webpack-dev-middleware": "^3.7.0",
+    "webpack-dev-server": "^3.2.1",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-hot-server-middleware": "^0.6.0",
+    "webpack-merge": "^4.2.1",
+    "webpack-node-externals": "^1.7.2"
   }
 }
