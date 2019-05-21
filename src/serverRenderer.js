@@ -11,9 +11,10 @@ function renderHTML(html, preloadedState) {
         <head>
           <meta charset=utf-8>
           <title>React Server Side Rendering</title>
+          <link href="style.css" rel="stylesheet" type="text/css">
         </head>
         <body>
-          <div id="root">${html}</div>
+          <div id="mount-point">${html}</div>
           <script>
             // WARNING: See the following for security issues around embedding JSON in HTML:
             // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
