@@ -4,6 +4,8 @@ import { fetchMovies } from '../../state/movies/moviesActions';
 import SearchByButton from '../searchByButton/searchByButton';
 import './search.less';
 import { Link } from "react-router-dom";
+import styled from 'styled-components'
+
 
 class Search extends React.Component {
 
@@ -35,6 +37,15 @@ class Search extends React.Component {
     }
 
     render() {
+        const Button = styled.button`
+            background: green
+            color: white;
+            font-size: 1em;
+            margin: 1em;
+            padding: 0.25em 1em;
+            border: 2px solid green;
+            border-radius: 3px;
+        `;
         return(
             <div>
                 <label>
@@ -47,7 +58,7 @@ class Search extends React.Component {
                     <SearchByButton name={'TITLE'} toggle={() => {this.setState({ searchBy: 'title' })}} isActive={this.state.searchBy === 'title'} />
                     <SearchByButton name={'GENRE'} toggle={() => {this.setState({ searchBy: 'genre' })}} isActive={this.state.searchBy === 'genre'} />
                 </div>
-                    <button className="search-submit-button" ><Link to={`/search?q=${this.state.searchValue}&searchBy=${this.state.searchBy}`}>Search@</Link></button>
+                    <Button><Link to={`/search?q=${this.state.searchValue}&searchBy=${this.state.searchBy}`}>Search@</Link></Button>
                 </div>
             </div>
         )

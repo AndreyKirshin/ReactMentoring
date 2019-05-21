@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import styled from 'styled-components'
 import './movieCard.less';
 import MovieInfo from '../movieInfo/movieInfo';
 import { fetchMovie } from '../../state/movie/movieActions';
@@ -24,9 +25,19 @@ class MovieCard extends React.Component {
 
     render() {
         const movie = this.props.movie;
+        const Button = styled.button`
+            background: green
+            color: white;
+            font-size: 1em;
+            margin: 1em;
+            padding: 0.25em 1em;
+            border: 2px solid green;
+            border-radius: 3px;
+            text-align-last: end;
+        `;
         return (
             <div>
-                <div className="movie-card-back-to-search"><Link to='/'>Search</Link></div>
+                <Button><Link to='/'>Search</Link></Button>
                 { movie &&
                     <div className="movie-card-columns">
                         <div className="movie-card-left-column">
