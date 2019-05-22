@@ -33,15 +33,6 @@
   display: flex;
   flex-wrap: wrap;
 }
-.search-by {
-  margin: 5px;
-}
-.search-by-active {
-  background: green;
-}
-.search-by-inactive {
-  background: gray;
-}
 .search-input {
   width: 100%;
 }
@@ -51,9 +42,4 @@
   margin-bottom: 8px;
   justify-content: space-between;
   width: 100%;
-}
-.search-submit-button {
-  background: palevioletred;
-  height: 21px;
-  margin: 5px;
 }
