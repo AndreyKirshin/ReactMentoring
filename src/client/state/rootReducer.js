@@ -3,6 +3,6 @@ import movies from './movies/moviesReducer';
 import movie from './movie/movieReducer';
 
 export default combineReducers({
-    movies,
-    movie
+  movies,
+  movie,
 });

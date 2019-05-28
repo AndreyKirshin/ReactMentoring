@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = function(env, options)  {
-  const isProduction = options.mode === "production";
+  const envMode = options ? options.mode : '';
+  const isProduction = envMode === "production";
 
   const config = {
     context: path.join(__dirname, "src"),
